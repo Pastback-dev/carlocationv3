@@ -72,15 +72,13 @@ export const HeroSection = () => {
         />
 
         {/* Floating Car Silhouettes */}
-        <motion.div
+        <div
           className="absolute right-[10%] top-[20%] text-primary/10"
-          animate={shouldReduceMotion ? { y: 0, rotate: 0 } : { y: [0, -30, 0], rotate: [0, 5, 0] }}
-          transition={shouldReduceMotion ? { duration: 0 } : { duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         >
           <svg width="200" height="80" viewBox="0 0 200 80" fill="currentColor">
             <path d="M180 55c0-5.5-4.5-10-10-10h-10l-15-20c-2.5-3.3-6.4-5.3-10.5-5.3H65.5c-4.1 0-8 2-10.5 5.3L40 45H30c-5.5 0-10 4.5-10 10v10c0 2.8 2.2 5 5 5h10c0 8.3 6.7 15 15 15s15-6.7 15-15h70c0 8.3 6.7 15 15 15s15-6.7 15-15h10c2.8 0 5-2.2 5-5V55z"/>
           </svg>
-        </motion.div>
+        </div>
       </div>
 
       {/* Content */}
