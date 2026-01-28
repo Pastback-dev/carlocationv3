@@ -103,42 +103,30 @@ export const Navbar = () => {
       </nav>
 
       {/* Mobile Menu */}
-      <motion.div
-        initial={false}
-        animate={{
-          opacity: isOpen ? 1 : 0,
-          x: isOpen ? 0 : '100%',
-        }}
-        transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl md:hidden"
+      <div
+        className={cn(
+          "fixed inset-0 z-40 bg-background/95 backdrop-blur-xl md:hidden transition-all duration-300 ease-in-out",
+          isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 pointer-events-none"
+        )}
       >
         <div className="flex h-full flex-col items-center justify-center gap-8 pt-20">
           {navLinks.map((link, index) => (
-            <motion.button
+            <button
               key={link.label}
               onClick={() => scrollToSection(link.href)}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ 
-                opacity: isOpen ? 1 : 0, 
-                x: isOpen ? 0 : 50 
-              }}
-              transition={{ delay: 0.1 * index, duration: 0.4 }}
               className="text-2xl font-semibold text-foreground transition-colors hover:text-primary"
             >
               {link.label}
-            </motion.button>
+            </button>
           ))}
           
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : 20 }}
-            transition={{ delay: 0.4, duration: 0.4 }}
+          <button
             className="mt-4 rounded-xl bg-gradient-to-r from-primary to-electric-cyan px-8 py-4 text-lg font-semibold text-white"
           >
             Get Started
-          </motion.button>
+          </button>
         </div>
-      </motion.div>
+      </div>
     </>
   );
 };
