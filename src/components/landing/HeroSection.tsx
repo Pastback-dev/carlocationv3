@@ -16,50 +16,15 @@ export const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-background">
-      {/* Animated Background */}
+      {/* Static Background */}
       <div className="absolute inset-0">
         {/* Gradient Mesh */}
         <div className="absolute inset-0 bg-mesh-gradient opacity-60" />
         
-        {/* Animated Orbs */}
-        <motion.div
-          className="absolute -left-40 top-20 h-[600px] w-[600px] rounded-full bg-primary/20 blur-[120px]"
-          animate={
-            shouldReduceMotion
-              ? { x: 0, y: 0, scale: 1 }
-              : {
-                  x: [0, 100, 0],
-                  y: [0, 50, 0],
-                  scale: [1, 1.2, 1],
-                }
-          }
-          transition={shouldReduceMotion ? { duration: 0 } : { duration: 20, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute -right-40 bottom-20 h-[500px] w-[500px] rounded-full bg-electric-cyan/15 blur-[100px]"
-          animate={
-            shouldReduceMotion
-              ? { x: 0, y: 0, scale: 1 }
-              : {
-                  x: [0, -80, 0],
-                  y: [0, -60, 0],
-                  scale: [1, 1.3, 1],
-                }
-          }
-          transition={shouldReduceMotion ? { duration: 0 } : { duration: 15, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[80px]"
-          animate={
-            shouldReduceMotion
-              ? { scale: 1, opacity: 0.3 }
-              : {
-                  scale: [1, 1.5, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }
-          }
-          transition={shouldReduceMotion ? { duration: 0 } : { duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-        />
+        {/* Static Orbs (removed motion) */}
+        <div className="absolute -left-40 top-20 h-[600px] w-[600px] rounded-full bg-primary/20 blur-[120px]" />
+        <div className="absolute -right-40 bottom-20 h-[500px] w-[500px] rounded-full bg-electric-cyan/15 blur-[100px]" />
+        <div className="absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[80px]" />
 
         {/* Grid Pattern */}
         <div 
@@ -71,7 +36,7 @@ export const HeroSection = () => {
           }}
         />
 
-        {/* Floating Car Silhouettes */}
+        {/* Static Car Silhouette (removed motion) */}
         <div
           className="absolute right-[10%] top-[20%] text-primary/10"
         >
@@ -84,10 +49,8 @@ export const HeroSection = () => {
       {/* Content */}
       <div className="container-premium relative z-10 flex min-h-screen flex-col items-center justify-center pt-20">
         {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+        <div
+          // Removed motion for performance
           className="mb-8"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm">
@@ -95,13 +58,11 @@ export const HeroSection = () => {
             <span>AI-Powered Car Recommendations</span>
             <div className="h-1.5 w-1.5 motion-safe:animate-pulse rounded-full bg-primary" />
           </div>
-        </motion.div>
+        </div>
 
         {/* Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+        <h1
+          // Removed motion for performance
           className="mb-6 max-w-5xl text-center text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
         >
           <span className="text-foreground">Find the </span>
@@ -109,24 +70,20 @@ export const HeroSection = () => {
           <br />
           <span className="text-foreground">at the </span>
           <span className="text-gradient">Best Market Price</span>
-        </motion.h1>
+        </h1>
 
         {/* Subheadline */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+        <p
+          // Removed motion for performance
           className="mb-10 max-w-2xl text-center text-lg text-muted-foreground sm:text-xl"
         >
           Our intelligent system analyzes thousands of listings in real-time to deliver 
           personalized car recommendations tailored to your budget and needs.
-        </motion.p>
+        </p>
 
         {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+        <div
+          // Removed motion for performance
           className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6"
         >
           <MagneticButton variant="primary" onClick={() => navigate('/zenith')}>
@@ -137,13 +94,11 @@ export const HeroSection = () => {
           <MagneticButton variant="ghost" onClick={() => scrollToSection('#how-it-works')}>
             Explore How It Works
           </MagneticButton>
-        </motion.div>
+        </div>
 
         {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
+        <div
+          // Removed motion for performance
           className="mt-20 grid grid-cols-3 gap-8 sm:gap-16"
         >
           {[
@@ -156,25 +111,22 @@ export const HeroSection = () => {
               <div className="text-sm text-muted-foreground">{stat.label}</div>
             </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 0.6 }}
+        <div
+          // Removed motion for performance
           className="absolute bottom-10 left-1/2 -translate-x-1/2"
         >
-          <motion.button
+          <button
             onClick={() => scrollToSection('#trust')}
-            animate={shouldReduceMotion ? { y: 0 } : { y: [0, 10, 0] }}
-            transition={shouldReduceMotion ? { duration: 0 } : { duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            // Removed motion for performance
             className="flex flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
           >
             <span className="text-xs font-medium uppercase tracking-widest">Scroll</span>
             <ChevronDown className="h-5 w-5" />
-          </motion.button>
-        </motion.div>
+          </button>
+        </div>
       </div>
     </section>
   );

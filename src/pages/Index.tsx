@@ -10,10 +10,11 @@ import { CTASection } from '@/components/landing/CTASection';
 import { Footer } from '@/components/landing/Footer';
 
 const Index = () => {
-  useEffect(() => {
-    // Default to dark mode
-    document.documentElement.classList.add('dark');
-  }, []);
+  // The ThemeToggle component already handles setting the initial theme based on localStorage
+  // and document.documentElement.classList. This useEffect is redundant.
+  // useEffect(() => {
+  //   document.documentElement.classList.add('dark');
+  // }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">

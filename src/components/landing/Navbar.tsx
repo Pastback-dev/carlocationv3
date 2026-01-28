@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, useMotionTemplate, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { motion, useMotionValueEvent, useReducedMotion, useScroll } from 'framer-motion';
 import { Menu, X, Car } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import { cn } from '@/lib/utils';
@@ -17,8 +17,6 @@ export const Navbar = () => {
   
   const shouldReduceMotion = useReducedMotion();
   const { scrollY } = useScroll();
-  const backdropBlur = useTransform(scrollY, [0, 100], [0, 20]);
-  const backdropFilter = useMotionTemplate`blur(${backdropBlur}px)`;
 
   // Only update state when crossing threshold (avoid setState on every scroll tick).
   useMotionValueEvent(scrollY, 'change', (latest) => {
@@ -36,57 +34,48 @@ export const Navbar = () => {
 
   return (
     <>
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+      <nav
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           isScrolled ? 'py-3' : 'py-5'
         )}
       >
-        <motion.div
+        <div
           className={cn(
             'absolute inset-0 border-b transition-all duration-300',
             isScrolled 
               ? 'bg-background/80 border-border/50' 
               : 'bg-transparent border-transparent'
           )}
-          style={{
-            // Avoid dynamic blur if reduced motion (GPU heavy)
-            backdropFilter: !shouldReduceMotion && isScrolled ? backdropFilter : 'none',
-          }}
+          // Removed backdropFilter for performance
         />
         
         <div className="container-premium relative flex items-center justify-between">
           {/* Logo */}
-          <motion.a
+          <a
             href="#"
             className="flex items-center gap-2 text-xl font-bold"
-            whileHover={shouldReduceMotion ? undefined : { scale: 1.05 }}
-            whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
+            // Removed whileHover/whileTap for performance
           >
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-electric-cyan">
               <Car className="h-5 w-5 text-white" />
             </div>
             <span className="text-gradient">CarMatch</span>
             <span className="text-foreground">Pro</span>
-          </motion.a>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-8 md:flex">
-            {navLinks.map((link, index) => (
-              <motion.button
+            {navLinks.map((link) => (
+              <button
                 key={link.label}
                 onClick={() => scrollToSection(link.href)}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index, duration: 0.4 }}
+                // Removed initial/animate/transition for performance
                 className="relative text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-primary to-electric-cyan transition-all duration-300 group-hover:w-full" />
-              </motion.button>
+              </button>
             ))}
           </div>
 
@@ -94,26 +83,24 @@ export const Navbar = () => {
           <div className="flex items-center gap-4">
             <ThemeToggle />
             
-            <motion.button
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4, duration: 0.4 }}
+            <button
+              // Removed initial/animate/transition for performance
               className="hidden rounded-xl bg-gradient-to-r from-primary to-electric-cyan px-6 py-2.5 text-sm font-semibold text-white transition-all hover:shadow-glow hover:scale-105 md:block"
             >
               Get Started
-            </motion.button>
+            </button>
 
             {/* Mobile Menu Button */}
-            <motion.button
+            <button
               onClick={() => setIsOpen(!isOpen)}
               className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-card/50 md:hidden"
-              whileTap={shouldReduceMotion ? undefined : { scale: 0.9 }}
+              // Removed whileTap for performance
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </motion.button>
+            </button>
           </div>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Mobile Menu */}
       <motion.div

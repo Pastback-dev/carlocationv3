@@ -39,64 +39,56 @@ export const HowItWorksSection = () => {
 
       <div className="container-premium relative z-10">
         {/* Header */}
-        <motion.div
+        <div
           ref={ref}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          variants={staggerContainer}
+          // Removed motion for performance
           className="mb-20 text-center"
         >
-          <motion.p
-            variants={staggerItem}
+          <p
+            // Removed motion for performance
             className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary"
           >
             Simple Process
-          </motion.p>
-          <motion.h2
-            variants={staggerItem}
+          </p>
+          <h2
+            // Removed motion for performance
             className="mb-6 text-3xl font-bold sm:text-4xl md:text-5xl"
           >
             How It <span className="text-gradient">Works</span>
-          </motion.h2>
-          <motion.p
-            variants={staggerItem}
+          </h2>
+          <p
+            // Removed motion for performance
             className="mx-auto max-w-2xl text-lg text-muted-foreground"
           >
             Three simple steps to find your dream car at the best price.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* Steps */}
         <div className="relative">
-          {/* Connection Line */}
+          {/* Connection Line (removed motion) */}
           <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 lg:block">
-            <motion.div
-              initial={{ scaleY: 0 }}
-              animate={isInView ? { scaleY: 1 } : {}}
-              transition={{ duration: 1.5, ease: 'easeOut' }}
+            <div
               className="h-full w-full origin-top bg-gradient-to-b from-primary via-electric-cyan to-primary"
             />
           </div>
 
-          <motion.div
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-            variants={staggerContainer}
+          <div
+            // Removed motion for performance
             className="relative space-y-12 lg:space-y-24"
           >
             {steps.map((step, index) => (
-              <motion.div
+              <div
                 key={index}
-                variants={staggerItem}
+                // Removed motion for performance
                 className={`flex flex-col items-center gap-8 lg:flex-row ${
                   index % 2 === 1 ? 'lg:flex-row-reverse' : ''
                 }`}
               >
                 {/* Content */}
                 <div className={`flex-1 ${index % 2 === 1 ? 'lg:text-right' : ''}`}>
-                  <motion.div
-                    whileHover={{ x: index % 2 === 1 ? -10 : 10 }}
-                    transition={{ type: 'spring', stiffness: 300 }}
+                  <div
+                    // Removed motion for performance
                     className="glass-card p-8"
                   >
                     <div className={`mb-4 flex items-center gap-4 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
@@ -107,26 +99,24 @@ export const HowItWorksSection = () => {
                     </div>
                     <h3 className="mb-3 text-xl font-bold text-foreground">{step.title}</h3>
                     <p className="text-muted-foreground">{step.description}</p>
-                  </motion.div>
+                  </div>
                 </div>
 
                 {/* Center Icon (Desktop) */}
                 <div className="relative hidden lg:flex">
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={isInView ? { scale: 1 } : {}}
-                    transition={{ delay: 0.3 * index, duration: 0.5, type: 'spring' }}
+                  <div
+                    // Removed motion for performance
                     className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary to-electric-cyan shadow-glow"
                   >
                     <step.icon className="h-8 w-8 text-white" />
-                  </motion.div>
+                  </div>
                 </div>
 
                 {/* Empty Space for Alignment */}
                 <div className="hidden flex-1 lg:block" />
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

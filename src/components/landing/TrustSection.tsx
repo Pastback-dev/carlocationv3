@@ -36,49 +36,45 @@ export const TrustSection = () => {
       
       <div className="container-premium relative z-10">
         {/* Header */}
-        <motion.div
+        <div
           ref={ref}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          variants={staggerContainer}
+          // Removed motion for performance
           className="mb-16 text-center"
         >
-          <motion.p
-            variants={staggerItem}
+          <p
+            // Removed motion for performance
             className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary"
           >
             Why Choose Us
-          </motion.p>
-          <motion.h2
-            variants={staggerItem}
+          </p>
+          <h2
+            // Removed motion for performance
             className="mb-6 text-3xl font-bold sm:text-4xl md:text-5xl"
           >
             We analyze the market{' '}
             <span className="text-gradient">so you don't have to.</span>
-          </motion.h2>
-          <motion.p
-            variants={staggerItem}
+          </h2>
+          <p
+            // Removed motion for performance
             className="mx-auto max-w-2xl text-lg text-muted-foreground"
           >
             Our cutting-edge technology and automotive expertise combine to deliver 
             unmatched car buying insights and recommendations.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* Cards Grid */}
-        <motion.div
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          variants={staggerContainer}
+        <div
+          // Removed motion for performance
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
         >
           {trustItems.map((item, index) => (
-            <motion.div key={index} variants={staggerItem}>
+            <div key={index} /* Removed motion for performance */>
               <GlassCard className="h-full">
                 <div className="flex flex-col items-start">
                   {/* Icon */}
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-electric-cyan/20 ring-1 ring-primary/20">
-                    <item.icon className="h-7 w-7 text-primary" />
+                  <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-electric-cyan/20 ring-1 ring-primary/20">
+                    <item.icon className="h-5 w-5 text-primary" />
                   </div>
                   
                   {/* Title */}
@@ -92,9 +88,9 @@ export const TrustSection = () => {
                   </p>
                 </div>
               </GlassCard>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -54,17 +54,15 @@ export const SocialProofSection = () => {
       
       <div className="container-premium relative z-10">
         {/* Stats Bar */}
-        <motion.div
+        <div
           ref={ref}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          variants={staggerContainer}
+          // Removed motion for performance
           className="mb-20 grid gap-8 sm:grid-cols-3"
         >
           {socialProofStats.map((stat, index) => (
-            <motion.div
+            <div
               key={index}
-              variants={staggerItem}
+              // Removed motion for performance
               className="glass-card p-8 text-center"
             >
               <div className="mb-2 text-4xl font-bold text-gradient sm:text-5xl">
@@ -76,30 +74,28 @@ export const SocialProofSection = () => {
                 />
               </div>
               <p className="text-muted-foreground">{stat.label}</p>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Header */}
-        <motion.div
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          variants={staggerContainer}
+        <div
+          // Removed motion for performance
           className="mb-16 text-center"
         >
-          <motion.p
-            variants={staggerItem}
+          <p
+            // Removed motion for performance
             className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary"
           >
             Testimonials
-          </motion.p>
-          <motion.h2
-            variants={staggerItem}
+          </p>
+          <h2
+            // Removed motion for performance
             className="mb-6 text-3xl font-bold sm:text-4xl md:text-5xl"
           >
             Trusted by <span className="text-gradient">Hundreds</span>
-          </motion.h2>
-        </motion.div>
+          </h2>
+        </div>
 
         {/* Testimonials Carousel */}
         <div className="relative mx-auto max-w-4xl">
@@ -157,14 +153,13 @@ export const SocialProofSection = () => {
 
           {/* Navigation */}
           <div className="mt-8 flex items-center justify-center gap-4">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+            <button
+              // Removed motion for performance
               onClick={prevTestimonial}
               className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card transition-colors hover:border-primary hover:shadow-glow"
             >
               <ChevronLeft className="h-5 w-5" />
-            </motion.button>
+            </button>
             
             <div className="flex gap-2">
               {testimonials.map((_, i) => (
@@ -178,14 +173,13 @@ export const SocialProofSection = () => {
               ))}
             </div>
 
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+            <button
+              // Removed motion for performance
               onClick={nextTestimonial}
               className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card transition-colors hover:border-primary hover:shadow-glow"
             >
               <ChevronRight className="h-5 w-5" />
-            </motion.button>
+            </button>
           </div>
         </div>
       </div>

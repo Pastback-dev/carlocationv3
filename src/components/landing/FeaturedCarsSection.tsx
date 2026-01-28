@@ -74,42 +74,38 @@ export const FeaturedCarsSection = () => {
       
       <div className="container-premium relative z-10">
         {/* Header */}
-        <motion.div
+        <div
           ref={ref}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          variants={staggerContainer}
+          // Removed motion for performance
           className="mb-16 text-center"
         >
-          <motion.p
-            variants={staggerItem}
+          <p
+            // Removed motion for performance
             className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary"
           >
             Top Picks
-          </motion.p>
-          <motion.h2
-            variants={staggerItem}
+          </p>
+          <h2
+            // Removed motion for performance
             className="mb-6 text-3xl font-bold sm:text-4xl md:text-5xl"
           >
             Featured <span className="text-gradient">Recommendations</span>
-          </motion.h2>
-          <motion.p
-            variants={staggerItem}
+          </h2>
+          <p
+            // Removed motion for performance
             className="mx-auto max-w-2xl text-lg text-muted-foreground"
           >
             Hand-picked vehicles with exceptional value and verified market pricing.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* Cars Grid */}
-        <motion.div
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          variants={staggerContainer}
+        <div
+          // Removed motion for performance
           className="grid gap-6 md:grid-cols-2 lg:grid-cols-4"
         >
           {featuredCars.map((car, index) => (
-            <motion.div key={car.id} variants={staggerItem}>
+            <div key={car.id} /* Removed motion for performance */>
               <GlassCard className="group h-full overflow-hidden p-0">
                 {/* Image */}
                 <div className="relative aspect-[4/3] overflow-hidden">
@@ -122,14 +118,13 @@ export const FeaturedCarsSection = () => {
                   
                   {/* Best Choice Badge */}
                   {car.bestChoice && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -20 }}
-                      animate={{ opacity: 1, y: 0 }}
+                    <div
+                      // Removed motion for performance
                       className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-gradient-to-r from-primary to-electric-cyan px-3 py-1 text-xs font-semibold text-white shadow-glow motion-safe:animate-glow-pulse"
                     >
                       <Award className="h-3 w-3" />
                       Best Choice
-                    </motion.div>
+                    </div>
                   )}
 
                   {/* Savings Badge */}
@@ -199,20 +194,19 @@ export const FeaturedCarsSection = () => {
                   </div>
                 </div>
               </GlassCard>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Navigation (Mobile) */}
         <div className="mt-8 flex items-center justify-center gap-4 md:hidden">
-          <motion.button
-            whileHover={shouldReduceMotion ? undefined : { scale: 1.1 }}
-            whileTap={shouldReduceMotion ? undefined : { scale: 0.9 }}
+          <button
+            // Removed motion for performance
             onClick={prevCar}
             className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card transition-colors hover:border-primary"
           >
             <ChevronLeft className="h-5 w-5" />
-          </motion.button>
+          </button>
           <div className="flex gap-2">
             {featuredCars.map((_, i) => (
               <button
@@ -224,14 +218,13 @@ export const FeaturedCarsSection = () => {
               />
             ))}
           </div>
-          <motion.button
-            whileHover={shouldReduceMotion ? undefined : { scale: 1.1 }}
-            whileTap={shouldReduceMotion ? undefined : { scale: 0.9 }}
+          <button
+            // Removed motion for performance
             onClick={nextCar}
             className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card transition-colors hover:border-primary"
           >
             <ChevronRight className="h-5 w-5" />
-          </motion.button>
+          </button>
         </div>
       </div>
     </section>
