@@ -26,39 +26,39 @@ export const HeroSection = () => {
           className="absolute -left-40 top-20 h-[600px] w-[600px] rounded-full bg-primary/20 blur-[120px]"
           animate={
             shouldReduceMotion
-              ? undefined
+              ? { x: 0, y: 0, scale: 1 }
               : {
                   x: [0, 100, 0],
                   y: [0, 50, 0],
                   scale: [1, 1.2, 1],
                 }
           }
-          transition={shouldReduceMotion ? undefined : { duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 20, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
           className="absolute -right-40 bottom-20 h-[500px] w-[500px] rounded-full bg-electric-cyan/15 blur-[100px]"
           animate={
             shouldReduceMotion
-              ? undefined
+              ? { x: 0, y: 0, scale: 1 }
               : {
                   x: [0, -80, 0],
                   y: [0, -60, 0],
                   scale: [1, 1.3, 1],
                 }
           }
-          transition={shouldReduceMotion ? undefined : { duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 15, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
           className="absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[80px]"
           animate={
             shouldReduceMotion
-              ? undefined
+              ? { scale: 1, opacity: 0.3 }
               : {
                   scale: [1, 1.5, 1],
                   opacity: [0.3, 0.5, 0.3],
                 }
           }
-          transition={shouldReduceMotion ? undefined : { duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 10, repeat: Infinity, ease: 'easeInOut' }}
         />
 
         {/* Grid Pattern */}
@@ -74,8 +74,8 @@ export const HeroSection = () => {
         {/* Floating Car Silhouettes */}
         <motion.div
           className="absolute right-[10%] top-[20%] text-primary/10"
-          animate={{ y: [0, -30, 0], rotate: [0, 5, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          animate={shouldReduceMotion ? { y: 0, rotate: 0 } : { y: [0, -30, 0], rotate: [0, 5, 0] }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         >
           <svg width="200" height="80" viewBox="0 0 200 80" fill="currentColor">
             <path d="M180 55c0-5.5-4.5-10-10-10h-10l-15-20c-2.5-3.3-6.4-5.3-10.5-5.3H65.5c-4.1 0-8 2-10.5 5.3L40 45H30c-5.5 0-10 4.5-10 10v10c0 2.8 2.2 5 5 5h10c0 8.3 6.7 15 15 15s15-6.7 15-15h70c0 8.3 6.7 15 15 15s15-6.7 15-15h10c2.8 0 5-2.2 5-5V55z"/>
@@ -95,7 +95,7 @@ export const HeroSection = () => {
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm">
             <Sparkles className="h-4 w-4" />
             <span>AI-Powered Car Recommendations</span>
-            <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
+            <div className="h-1.5 w-1.5 motion-safe:animate-pulse rounded-full bg-primary" />
           </div>
         </motion.div>
 
@@ -169,8 +169,8 @@ export const HeroSection = () => {
         >
           <motion.button
             onClick={() => scrollToSection('#trust')}
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            animate={shouldReduceMotion ? { y: 0 } : { y: [0, 10, 0] }}
+            transition={shouldReduceMotion ? { duration: 0 } : { duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             className="flex flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
           >
             <span className="text-xs font-medium uppercase tracking-widest">Scroll</span>

@@ -125,7 +125,7 @@ export const FeaturedCarsSection = () => {
                     <motion.div
                       initial={{ opacity: 0, y: -20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-gradient-to-r from-primary to-electric-cyan px-3 py-1 text-xs font-semibold text-white shadow-glow animate-glow-pulse"
+                      className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-gradient-to-r from-primary to-electric-cyan px-3 py-1 text-xs font-semibold text-white shadow-glow motion-safe:animate-glow-pulse"
                     >
                       <Award className="h-3 w-3" />
                       Best Choice

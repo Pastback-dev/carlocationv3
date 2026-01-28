@@ -49,9 +49,9 @@ export const WhyChooseUsSection = () => {
                   scale: [1, 1.2, 1],
                   opacity: [0.3, 0.5, 0.3],
                 }
-              : undefined
+              : { scale: 1, opacity: 0.3 }
           }
-          transition={shouldReduceMotion ? undefined : { duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         />
       </div>
 
@@ -145,9 +145,9 @@ export const WhyChooseUsSection = () => {
                       scale: [1, 1.3, 1],
                       opacity: [0.4, 0.6, 0.4],
                     }
-                  : undefined
+                  : { scale: 1, opacity: 0.4 }
               }
-              transition={shouldReduceMotion ? undefined : { duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 5, repeat: Infinity, ease: 'easeInOut' }}
             />
             <motion.div
               className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-gradient-to-br from-electric-cyan/20 to-primary/10 blur-2xl"
@@ -157,9 +157,9 @@ export const WhyChooseUsSection = () => {
                       scale: [1, 1.2, 1],
                       opacity: [0.3, 0.5, 0.3],
                     }
-                  : undefined
+                  : { scale: 1, opacity: 0.3 }
               }
-              transition={shouldReduceMotion ? undefined : { duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
             />
           </motion.div>
         </div>

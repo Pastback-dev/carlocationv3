@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 interface GlassCardProps {
@@ -16,6 +16,7 @@ export const GlassCard = ({
   glowOnHover = true,
 }: GlassCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
   
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -27,7 +28,7 @@ export const GlassCard = ({
   const rotateY = useTransform(mouseX, [-0.5, 0.5], [-tiltStrength, tiltStrength]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
+    if (shouldReduceMotion || !cardRef.current) return;
     
     const rect = cardRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
@@ -38,6 +39,7 @@ export const GlassCard = ({
   };
 
   const handleMouseLeave = () => {
+    if (shouldReduceMotion) return;
     x.set(0);
     y.set(0);
   };
@@ -47,11 +49,15 @@ export const GlassCard = ({
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: 'preserve-3d',
-      }}
+      style={
+        shouldReduceMotion
+          ? undefined
+          : {
+              rotateX,
+              rotateY,
+              transformStyle: 'preserve-3d',
+            }
+      }
       className={cn(
         'glass-card group relative p-6 transition-all duration-300',
         glowOnHover && 'hover:border-primary/30 hover:shadow-glow',
@@ -67,7 +73,7 @@ export const GlassCard = ({
       />
       
       {/* Content */}
-      <div className="relative z-10" style={{ transform: 'translateZ(20px)' }}>
+      <div className="relative z-10" style={{ transform: shouldReduceMotion ? 'none' : 'translateZ(20px)' }}>
         {children}
       </div>
     </motion.div>

@@ -23,9 +23,9 @@ export const CTASection = () => {
                   scale: [1, 1.3, 1],
                   opacity: [0.3, 0.5, 0.3],
                 }
-              : undefined
+              : { scale: 1, opacity: 0.3 }
           }
-          transition={shouldReduceMotion ? undefined : { duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 6, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
           className="absolute -right-20 top-1/4 h-[300px] w-[300px] rounded-full bg-electric-cyan/20 blur-[80px]"
@@ -35,9 +35,9 @@ export const CTASection = () => {
                   scale: [1, 1.2, 1],
                   opacity: [0.2, 0.4, 0.2],
                 }
-              : undefined
+              : { scale: 1, opacity: 0.2 }
           }
-          transition={shouldReduceMotion ? undefined : { duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
         />
 
         {/* Grid Pattern */}
